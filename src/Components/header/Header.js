@@ -12,6 +12,13 @@ const Header = () => {
  
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false)
+  const [suggestions, setSuggestions] = useState()
+   
+
+  const cachedResults = useSelector(store=> store.search)
+
+
+ 
 
   
   // console.log(searchQuery)
@@ -22,7 +29,40 @@ const Header = () => {
     dispatch(toggleMenu());
   };
 
- 
+  const getSearchFunction = async()=>{
+    // console.log("API -:" +  searchQuery)
+    const data = await fetch(YOUTUBE_SUGGESTION_API + searchQuery);
+    const result = await data.json()
+    console.log(result)
+    setShowSuggestions(result[1])
+
+    dispatch(setCacheResults({[searchQuery] : result[1] }))
+    window.scrollTo(0,0)
+    // console.log(result)
+    
+  }
+
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+    if(cachedResults[searchQuery]){
+      setSuggestions(cachedResults[searchQuery])
+    } else { 
+    
+        getSearchFunction()
+    }
+      },200)
+    
+      return () =>{
+        clearTimeout(timer)
+      }
+  },[searchQuery])
+
+  const handleClickSuggest = (suggest) => {
+    navigate("/")
+    setSearchQuery(suggest)
+    dispatch(setSearchedText(suggest))
+    setShowSuggestions(false)
+  }
 
 
 
@@ -80,6 +120,14 @@ const Header = () => {
           }}
         />
         </button>
+        <div>
+      { showSuggestions && <div className='fixed px-5 py-2  bg-white border-gray-400  w-[31.5rem] rounded-lg'>
+        <ul>
+          {suggestions?.map(s=> <li key={s} className=' flex  hover:bg-gray-100'>
+            <FiSearch className='m-2'/>  {s}</li>)} 
+        </ul>
+          </div>}
+    </div>
         </div>
       
     </div>
