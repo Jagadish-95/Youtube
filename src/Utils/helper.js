@@ -1,0 +1,53 @@
+const nameList = [
+    "Aarav",
+    "Aditi",
+    "Amit",
+    "Ananya",
+    "Arjun",
+    "Divya",
+    "Ishaan",
+    "Jaya",
+    "Kavya",
+    "Krishna",
+    "Maya",
+    "Neha",
+    "Pranav",
+    "Priya",
+    "Rahul",
+    "Riya",
+    "Sanjay",
+    "Shreya",
+    "Tanvi",
+    "Vikram",
+  ];
+  
+  const textList = [
+    "Funny 😅",
+    "Great 😅😅",
+    "Woww 😅",
+    "Go Go Go 😅😅",
+    "King 💝",
+    "Great 💝💝💝💝",
+    "Music 💝💝💝",
+    "Sooo niceee 😅",
+    "Come on..",
+    "Hello 🚀🚀",
+    "Hello Hello 🚀",
+    "More Please 💌💌",
+    "Nice video 🚀🚀",
+    "For you 💌💌",
+    "1 2 3 🚀🚀",
+    "Bring it ON 🚀🚀",
+    "Share 💌💌💌",
+    "Need more..",
+    "Loved this song 🚀",
+    "Honestly 🚀🚀",
+    "Eagle is coming 💌💌",
+    "Thank you... 💌💌💌",
+  ];
+  export const generateRandomNameWithText = () => {
+    return {
+      name: nameList[Math.floor(Math.random() * nameList.length)],
+      text: textList[Math.floor(Math.random() * textList.length)],
+    };
+  };
