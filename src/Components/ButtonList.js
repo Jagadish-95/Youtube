@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-// import Button from './Button'
 import { BiSolidChevronLeft, BiSolidChevronRight } from "react-icons/bi";
 import { buttonList } from '../Utils/constants';
 

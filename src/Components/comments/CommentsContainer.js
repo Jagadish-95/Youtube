@@ -5,18 +5,6 @@ import { formatCount } from '../../Utils/constants'
 
 
 
-// const Comments = ({data}) => {
-//     const {name, text, replies} = data
-//     return(
-//         <div className='flex py-3'>
-//             <img className='w-8 h-8' alt='user' src='https://static-00.iconduck.com/assets.00/user-icon-1024x1024-dtzturco.png'/>
-//             <div className='pl-5 '>
-//             <p>{name}</p>
-//             <p>{text}</p>
-//             </div>
-//         </div>
-//     )
-// }
 
 const CommentList = ({comments}) =>{
     return comments.map((comment, index)=>

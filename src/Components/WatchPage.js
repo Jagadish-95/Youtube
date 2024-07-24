@@ -12,7 +12,7 @@ import LiveChat from './livechat/LiveChat'
 const WatchPage = () => {
   const dispatch = useDispatch()
   const [searchParams] = useSearchParams()
-  // console.log(searchParams.get("v"))
+
   const { data: video, isLoading } = useFetch(
     YOUTUBE_GET_SINGLE_VIDEO_API + searchParams.get("v")
   );

@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   const getSearchFunction = async()=>{
-    // console.log("API -:" +  searchQuery)
+    
     const data = await fetch(YOUTUBE_SUGGESTION_API + searchQuery);
     const result = await data.json()
     console.log(result)
@@ -38,7 +38,7 @@ const Header = () => {
 
     dispatch(setCacheResults({[searchQuery] : result[1] }))
     window.scrollTo(0,0)
-    // console.log(result)
+    
     
   }
 

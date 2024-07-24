@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 const Video = ({info}) => {
   const {isMenuOpen} = useSelector(store=>store.app)
 
-    // console.log(info)
+    
     const {snippet, statistics} = info;
     const {title, channelTitle, thumbnails} = snippet;
     const {viewCount} = statistics

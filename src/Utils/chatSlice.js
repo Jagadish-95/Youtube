@@ -13,9 +13,7 @@ const chatSlice = createSlice({
       }
       state.messages.unshift(action.payload);
     },
-    // clearMessages: (state) => {
-    //   state.messages = [];
-    // },
+   
   },
 });
 

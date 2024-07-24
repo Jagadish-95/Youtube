@@ -9,21 +9,11 @@ import { useSelector } from 'react-redux';
 
 const VideoContainer = () => {
   const searchText = useSelector(store => store.searchText)
-  // const [Videos, setVideos] = useState();
+  
   const url = searchText ? YOUTUBE_SEARCH_API + searchText : YOUTUBE_VIDEOS_API
   const { data: data, isLoading} = useFetch(url)
  
-  // const getVideo = async()=>{
-  //   const data = await fetch(YOUTUBE_VIDEOS_API);
-  //   const json = await data.json()
-  //   // console.log(json)
-  //   setVideos(json?.items)
-  // }
-
-  // useEffect(()=>{
-  //     getVideo()
-  // }, [])
-
+ 
   if (isLoading)
     return (
   <>
@@ -32,15 +22,7 @@ const VideoContainer = () => {
           <VideoShimmer key={index} />
         ))}
       </div>
-       {/* <div className="flex flex-wrap" id="videosContainer">
-       {data?.slice(firstIndex, lastIndex).map((video) => (
-         <VideoCard
-           key={video.id}
-           info={video}
-           id={typeof video.id !== "object" ? video.id : video.id.videoId}
-         />
-       ))}
-       </div> */}
+      
        </>
     );
 

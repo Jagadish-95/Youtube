@@ -10,7 +10,7 @@ const useFetch = (url) => {
         try{
         const data = await fetch(url);
         const json = await data.json()
-        // console.log(json)
+        
         setData(json?.items)
         }
         catch(err){
